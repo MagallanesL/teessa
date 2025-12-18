@@ -16,13 +16,137 @@
     --text-light: #5a5a5a;
 }
 
+
+/* ========================= */
+/* FUENTES – NUNITO SANS */
+/* ========================= */
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('/static/NunitoSans_10pt-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+
+
+
+
 /* GLOBAL */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nunito Sans', system-ui, -apple-system, BlinkMacSystemFont,
+                 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     overflow-x: hidden;
 }
+
 
 .container {
     max-width: 1200px;
@@ -168,11 +292,60 @@ section {
 }
 
 /* FOOTER */
-footer {
-    background: var(--color-dark);
-    color: white;
+#footer {
+    background: #0f0f0f;
+    padding: 2.5rem 1rem;
     text-align: center;
-    padding: 3rem 1rem;
+}
+
+.footer-text {
+    margin-top: 2.0rem;
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+/* REDES */
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-socials a {
+    display: inline-flex;
+    transition: transform 0.25s ease;
+}
+
+.footer-socials img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.65;
+    transition: opacity 0.25s ease, filter 0.25s ease;
+}
+
+.footer-socials a:hover {
+    transform: translateY(-2px);
+}
+
+.footer-socials a:hover img {
+    opacity: 1;
+}
+
+.footer-socials a.ig:hover img {
+    filter: drop-shadow(0 0 4px rgba(225, 48, 108, 0.6));
+}
+
+.footer-socials a.fb:hover img {
+    filter: drop-shadow(0 0 4px rgba(24, 119, 242, 0.6));
+}
+
+.footer-socials a.wa:hover img {
+    filter: drop-shadow(0 0 4px rgba(37, 211, 102, 0.6));
+}
+
+.footer-socials a.mail:hover img {
+    filter: drop-shadow(0 0 4px rgba(200, 200, 200, 0.6));
 }
 
 /* ========================= */
@@ -191,7 +364,6 @@ footer {
 
 @media (max-width: 768px) {
 
-    /* HEADER */
     .header-content {
         flex-direction: row;
     }
@@ -232,12 +404,10 @@ footer {
         font-size: 1.1rem;
     }
 
-    /* HERO */
     .hero {
         padding: 8rem 1rem 4rem;
     }
 
-    /* SECCIONES */
     section {
         padding: 3.5rem 0;
     }
@@ -265,8 +435,145 @@ footer {
     .section-title {
         font-size: 1.6rem;
     }
+}
 
-    footer {
-        font-size: 0.9rem;
+/* ================================================= */
+/* ABOUT – MEJORAS VISUALES (AGREGADO, NO INVASIVO) */
+/* ================================================= */
+
+#about .section-intro {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+#about .card-highlight {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+}
+
+#about .values-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.8rem;
+}
+
+#about .values-list li {
+    margin-bottom: 0.4rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+#about .values-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-terra);
+}
+
+#about .section-card {
+    margin-top: 3rem;
+}
+
+#about .objectives {
+    display: grid;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+#about .objective {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+#about .objective span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-terra);
+    line-height: 1;
+    margin-top: 0.2rem;
+}
+
+#about .two-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+#about .two-columns h4 {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+#about .section-cta {
+    margin-top: 1.8rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+
+/* ========================= */
+/* JERARQUÍA TIPOGRÁFICA */
+/* ========================= */
+
+h1 {
+    font-weight: 800;
+}
+
+h2, .section-title {
+    font-weight: 700;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+h4 {
+    font-weight: 600;
+}
+
+p, li {
+    font-weight: 400;
+}
+
+.card-highlight {
+    font-weight: 600;
+}
+
+.btn {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+nav ul li a {
+    font-weight: 500;
+}
+
+/* RESPONSIVE – ABOUT */
+
+@media (max-width: 768px) {
+    #about .section-intro {
+        margin-bottom: 2.2rem;
+        font-size: 1rem;
+    }
+
+    #about .objective {
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #about .section-intro {
+        font-size: 0.95rem;
+    }
+
+    #about .two-columns {
+        gap: 1.5rem;
     }
 }
