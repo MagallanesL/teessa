@@ -136,6 +136,55 @@ programItems.forEach(item => {
 });
 
 /* ============================
+    LIGHTBOX IMÁGENES DE LA PÁGINA
+============================ */
+const lightboxImages = document.querySelectorAll('img:not(#imageLightboxImg)');
+const imageLightbox = document.getElementById('imageLightbox');
+const imageLightboxImg = document.getElementById('imageLightboxImg');
+const imageLightboxClose = document.getElementById('imageLightboxClose');
+
+const closeLightbox = () => {
+    if (!imageLightbox) return;
+    imageLightbox.classList.remove('active');
+    imageLightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+};
+
+if (lightboxImages.length && imageLightbox && imageLightboxImg && imageLightboxClose) {
+    lightboxImages.forEach(image => {
+        if (image.closest('#footer .footer-socials a')) {
+            return;
+        }
+
+        image.classList.add('lightbox-target');
+
+        image.addEventListener('click', () => {
+            if (!image.src) return;
+
+            imageLightboxImg.src = image.src;
+            imageLightboxImg.alt = image.alt || 'Imagen ampliada';
+            imageLightbox.classList.add('active');
+            imageLightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    imageLightboxClose.addEventListener('click', closeLightbox);
+
+    imageLightbox.addEventListener('click', (event) => {
+        if (event.target === imageLightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && imageLightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
+
+/* ============================
    SCROLL-TOP BUTTON
 ============================ */
 const scrollTopBtn = document.getElementById('scrollTop');
