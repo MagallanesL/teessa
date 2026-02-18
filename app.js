@@ -1,23 +1,53 @@
 /* ============================
-   MENU MOBILE
+   SIDEBAR NAVIGATION
 ============================ */
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebar = document.getElementById('sidebar');
 const navLinks = document.querySelectorAll('.nav-link');
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
+const isMobileView = () => window.matchMedia('(max-width: 1024px)').matches;
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-        });
+const syncSidebarState = () => {
+    if (isMobileView()) {
+        document.body.classList.remove('sidebar-hidden');
+        document.body.classList.remove('sidebar-open');
+        if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', 'false');
+        return;
+    }
+
+    if (!document.body.classList.contains('sidebar-hidden')) {
+        document.body.classList.add('sidebar-open');
+    }
+    if (sidebarToggle) {
+        sidebarToggle.setAttribute(
+            'aria-expanded',
+            String(document.body.classList.contains('sidebar-open'))
+        );
+    }
+};
+
+if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', () => {
+        if (isMobileView()) {
+            document.body.classList.toggle('sidebar-open');
+            sidebarToggle.setAttribute(
+                'aria-expanded',
+                String(document.body.classList.contains('sidebar-open'))
+            );
+            return;
+        }
+
+        document.body.classList.toggle('sidebar-hidden');
+        document.body.classList.toggle('sidebar-open');
+        sidebarToggle.setAttribute(
+            'aria-expanded',
+            String(document.body.classList.contains('sidebar-open'))
+        );
     });
 }
+
+window.addEventListener('resize', syncSidebarState);
+syncSidebarState();
 
 /* ============================
    SMOOTH SCROLL
@@ -27,41 +57,66 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             event.preventDefault();
+
+            if (this.classList.contains('nav-link')) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            }
+
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            if (isMobileView()) {
+                document.body.classList.remove('sidebar-open');
+                if (sidebarToggle) sidebarToggle.setAttribute('aria-expanded', 'false');
+            }
         }
     });
 });
 
 /* ============================
-   HEADER SCROLLED + LINK ACTIVO
+   LINK ACTIVO SEGÚN SCROLL
 ============================ */
-const header = document.getElementById('header');
+const navTargets = Array.from(navLinks)
+    .map(link => {
+        const href = link.getAttribute('href') || '';
+        if (!href.startsWith('#')) return null;
+        const target = document.querySelector(href);
+        if (!target) return null;
+        return { link, target };
+    })
+    .filter(Boolean);
 
-if (header) {
-    window.addEventListener('scroll', () => {
+const setActiveLink = (activeLink) => {
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+};
 
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+const updateActiveLink = () => {
+    if (!navTargets.length) return;
+
+    let activeTarget = navTargets[0];
+    const focusLine = window.scrollY + (window.innerHeight * 0.35);
+    const nearPageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+
+    if (nearPageBottom) {
+        setActiveLink(navTargets[navTargets.length - 1].link);
+        return;
+    }
+
+    navTargets.forEach(item => {
+        const targetTop = item.target.getBoundingClientRect().top + window.scrollY;
+        if (targetTop <= focusLine) {
+            activeTarget = item;
         }
-
-        let current = '';
-        document.querySelectorAll('section').forEach(section => {
-            const top = section.offsetTop - 150;
-            if (window.scrollY >= top) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
     });
-}
+
+    setActiveLink(activeTarget?.link);
+};
+
+window.addEventListener('scroll', updateActiveLink);
+window.addEventListener('load', updateActiveLink);
 
 /* ============================
    SCROLL-TOP BUTTON

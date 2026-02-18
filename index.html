@@ -7,31 +7,28 @@
     <link rel="icon" href="/img/teessa_logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="sidebar-open">
 
-<header id="header">
-    <div class="container">
-        <div class="header-content">
-            <div class="logo"></div>
-            <nav>
-                <div class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul id="navMenu">
-                    <li><a href="#home" class="nav-link active">Inicio</a></li>
-                    <li><a href="#about" class="nav-link">Nosotros</a></li>
-                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
-                    <li><a href="#pillars" class="nav-link">Pilares</a></li>
-                    <li><a href="#impact" class="nav-link">Impacto</a></li>
-                    <li><a href="#volunteer" class="nav-link">Voluntariado</a></li>
-                    <li><a href="#footer" class="nav-link">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</header>
+<button id="sidebarToggle" class="sidebar-toggle" aria-label="Mostrar u ocultar navegación" aria-expanded="true">☰</button>
+
+<aside id="sidebar" class="sidebar" aria-label="Navegación principal">
+    <div class="sidebar-brand">TEESSA</div>
+    <nav>
+        <ul id="navMenu">
+            <li><a href="#home" class="nav-link active">Inicio</a></li>
+            <li><a href="#about" class="nav-link">Quienes somos</a></li>
+            <li><a href="#board" class="nav-link">Consejo de administración</a></li>
+            <li><a href="#founders" class="nav-link">Socios fundadores</a></li>
+            <li><a href="#mission-vision-values" class="nav-link">Misión, visión y valores</a></li>
+            <li><a href="#programs" class="nav-link">Programas y participación</a></li>
+            <li><a href="#projects" class="nav-link">Proyectos</a></li>
+            <li><a href="#pillars" class="nav-link">Pilares</a></li>
+            <li><a href="#footer" class="nav-link">Contacto</a></li>
+        </ul>
+    </nav>
+</aside>
+
+<main id="mainContent">
 
 <section id="home" class="hero">
     <div class="container">
@@ -60,9 +57,50 @@
     <div class="container">
         <h2 class="section-title">¿Quiénes Somos?</h2>
 
-        <p class="section-intro">
-            Somos una fundación comprometida con la formación, el desarrollo humano y la transformación social,
-            generando oportunidades reales para construir un futuro mejor.
+        <div class="about-intro">
+            <div class="about-intro-text card">
+                <p>
+                    Fundación TEESSA es una entidad creada en agosto del 2024 por un grupo de personas con la convicción de contribuir al mejoramiento de la calidad de vida en sociedad tanto en el ámbito local, provincial, nacional e internacional, investigando, capacitando y concientizando sobre temas relacionados al trabajo, a la educación, a la economía, a la salud, a la seguridad, al ambiente y cualquier otro tema que sea menester en función de las necesidades sociales actuales y potenciales.
+                </p>
+            </div>
+            <div class="about-intro-media card">
+                <img src="img/quienes-somos.jpeg" alt="Equipo de Fundación TESA" loading="lazy">
+                <img src="img/quienessomos2.jpeg" alt="Actividad de Fundación TESA" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="board">
+    <div class="container">
+        <h2 class="section-title">Consejo de administración</h2>
+        <div class="card section-card">
+            <p>
+                Nuestro consejo acompaña estratégicamente la gestión institucional,
+                asegurando transparencia, planificación y cumplimiento de objetivos.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="founders">
+    <div class="container">
+        <h2 class="section-title">Socios fundadores</h2>
+        <div class="card section-card">
+            <p>
+                Los socios fundadores impulsan el origen de la Fundación y sostienen
+                su visión de impacto social con compromiso y participación activa.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="mission-vision-values">
+    <div class="container">
+        <h2 class="section-title">Misión, Visión y Valores</h2>
+
+        <p class="mission-intro">
+            Somos una fundación comprometida a brindar oportunidades de formación, de desarrollo personal y transformación social, generando oportunidades reales para construir una sociedad más igualitaria.
         </p>
 
         <div class="content-grid">
@@ -102,59 +140,53 @@
                 </ul>
             </div>
         </div>
+    </div>
+</section>
 
-
-  <br>
-        <div class="card section-card">
-            <h3>Nuestro Propósito</h3>
-            <p class="card-highlight">
-                Capacitar hoy para transformar el mañana.
-            </p>
-
-            <p>
-                TEESSA Fundación trabaja con personas de todas las edades y sectores,
-                promoviendo el crecimiento personal, laboral y cultural de la comunidad.
-            </p>
-
-            <div class="objectives">
-                <div class="objective">
-                    <span>01</span>
-                    <p>
-                        Fortalecer aptitudes laborales y educativas mediante habilidades técnicas y blandas.
-                    </p>
-                </div>
-                <div class="objective">
-                    <span>02</span>
-                    <p>
-                        Promover la capacitación continua en áreas clave como trabajo, educación, salud,
-                        economía, seguridad y ambiente.
-                    </p>
-                </div>
-                <div class="objective">
-                    <span>03</span>
-                    <p>
-                        Impulsar iniciativas que mejoren la calidad de vida según las necesidades actuales.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <br>
+<section id="programs">
+    <div class="container">
+        <h2 class="section-title">Programas y Participación</h2>
 
         <div class="card section-card">
-            <h3>Programas y Participación</h3>
+            <!-- <h3>Nuestros Programas</h3> -->
 
-            <div class="two-columns">
+            <div class="programs-layout">
                 <div>
                     <h4>Programas</h4>
-                    <ul>
-                        <li>Capacitación laboral y educativa</li>
-                        <li>Talleres, cursos y seminarios</li>
-                        <li>Charlas y conferencias</li>
-                        <li>Asesoramiento y mentoría</li>
-                    </ul>
+                    <div class="programs-accordion">
+                        <details class="program-item" open>
+                            <summary>Capacitación laboral y educativa</summary>
+                            <p>Formación práctica para fortalecer habilidades técnicas y blandas orientadas al empleo.</p>
+                        </details>
+
+                        <details class="program-item">
+                            <summary>Talleres, cursos, seminarios y simposios</summary>
+                            <p>Espacios de aprendizaje continuo con contenidos actualizados y enfoque aplicado.</p>
+                        </details>
+
+                        <details class="program-item">
+                            <summary>Charlas, conferencias y conversatorios</summary>
+                            <p>Encuentros de intercambio con referentes para promover reflexión y acción comunitaria.</p>
+                        </details>
+
+                        <details class="program-item">
+                            <summary>Congresos, jornadas y foros</summary>
+                            <p>Instancias de articulación para ampliar redes, compartir experiencias y generar propuestas.</p>
+                        </details>
+
+                        <details class="program-item">
+                            <summary>Ciclo de charlas</summary>
+                            <p>Programación temática periódica para abordar desafíos sociales actuales y emergentes.</p>
+                        </details>
+
+                        <details class="program-item">
+                            <summary>Asesoramiento y mentoría</summary>
+                            <p>Acompañamiento personalizado para proyectos, desarrollo profesional y toma de decisiones.</p>
+                        </details>
+                    </div>
                 </div>
 
-                <div>
+                <div class="programs-side">
                     <h4>Cómo participar</h4>
                     <ul>
                         <li>Ser miembro de la Fundación</li>
@@ -331,6 +363,7 @@
 
 
 
+</main>
 <script src="app.js"></script>
 </body>
 </html>
