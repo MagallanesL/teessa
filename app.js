@@ -119,6 +119,23 @@ window.addEventListener('scroll', updateActiveLink);
 window.addEventListener('load', updateActiveLink);
 
 /* ============================
+   ACORDEÓN PROGRAMAS (UN SOLO ITEM ABIERTO)
+============================ */
+const programItems = document.querySelectorAll('.programs-accordion .program-item');
+
+programItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+        if (!item.open) return;
+
+        programItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.open = false;
+            }
+        });
+    });
+});
+
+/* ============================
    SCROLL-TOP BUTTON
 ============================ */
 const scrollTopBtn = document.getElementById('scrollTop');
