@@ -156,6 +156,10 @@ if (lightboxImages.length && imageLightbox && imageLightboxImg && imageLightboxC
             return;
         }
 
+        if (image.closest('.sidebar-brand')) {
+            return;
+        }
+
         image.classList.add('lightbox-target');
 
         image.addEventListener('click', () => {
