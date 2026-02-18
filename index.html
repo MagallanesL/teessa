@@ -36,11 +36,13 @@
     <div class="container">
         <div class="hero-content">
 
-            <img 
-                src="img/TEESSA_Logotipo_Principal_Color_Claim.png" 
-                alt="Logo de la Fundación"
-                class="hero-logo"
-            >
+            <div class="hero-logo-frame">
+                <img 
+                    src="img/TEESSA_Logotipo_Principal_Color_Claim.png" 
+                    alt="Logo de la Fundación"
+                    class="hero-logo"
+                >
+            </div>
 
            
 
@@ -59,16 +61,11 @@
     <div class="container">
         <h2 class="section-title">¿Quiénes Somos?</h2>
 
-        <div class="about-intro">
-            <div class="about-intro-text card">
-                <p>
-                    Fundación TEESSA es una entidad creada en agosto del 2024 por un grupo de personas con la convicción de contribuir al mejoramiento de la calidad de vida en sociedad, tanto en el ámbito local, provincial, nacional e internacional, investigando, capacitando y concientizando sobre temas relacionados al trabajo, a la educación, a la economía, a la salud, a la seguridad, al ambiente y cualquier otro tema que sea menester en función de las necesidades sociales actuales y potenciales.
-                </p>
-            </div>
-            <div class="about-intro-media card">
-                <img src="img/quienes-somos.jpeg" alt="Equipo de Fundación TEESSA" loading="lazy">
-                <img src="img/quienessomos2.jpeg" alt="Actividad de Fundación TEESSA" loading="lazy">
-            </div>
+        <div class="about-intro card" style="display: flex; flex-direction: column; align-items: center;">
+            <p class="about-title" style="margin-bottom: 1.2rem; text-align: justify; width: 100%;">
+                Fundación TEESSA es una entidad creada en agosto del 2024 por un grupo de personas con la convicción de contribuir al mejoramiento de la calidad de vida en sociedad, tanto en el ámbito local, provincial, nacional e internacional, investigando, capacitando y concientizando sobre temas relacionados al trabajo, a la educación, a la economía, a la salud, a la seguridad, al ambiente y cualquier otro tema que sea menester en función de las necesidades sociales actuales y potenciales.
+            </p>
+            <img src="img/quienessomos2.jpeg" alt="Actividad de Fundación TEESSA" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: 12px; object-fit: cover;">
         </div>
     </div>
 </section>
@@ -81,6 +78,15 @@
                 Nuestro consejo acompaña estratégicamente la gestión institucional,
                 asegurando transparencia, planificación y cumplimiento de objetivos.
             </p>
+            <h3>Organigrama</h3>
+            <ul class="org-list">
+                <li><span>Presidente:</span> López, Gabriela del Carmen</li>
+                <li><span>Secretaria:</span> Quaranta Romina Soledad</li>
+                <li><span>Tesorera:</span> Condori, Daiana Yanet</li>
+                <li><span>Vocal titular:</span> López Claudia Alejandra</li>
+                <li><span>Vocal suplente:</span> Martínez, Luciano Jesús</li>
+            </ul>
+           
         </div>
     </div>
 </section>
@@ -89,28 +95,18 @@
     <div class="container">
         <h2 class="section-title">Socios fundadores</h2>
         <div class="card section-card founders-card">
-            <h3>Organigrama</h3>
-
-            <ul class="org-list">
-                <li><span>Presidente:</span> López, Gabriela del Carmen</li>
-                <li><span>Secretaria:</span> Quaranta Romina Soledad</li>
-                <li><span>Tesorera:</span> Condori, Daiana Yanet</li>
-                <li><span>Vocal titular:</span> López Claudia Aljandra</li>
-                <li><span>Vocal suplente:</span> Martínez, Luciano Jesús</li>
-            </ul>
-
-            <h4>Socios Fundadores</h4>
+            <!-- <h4>Socios Fundadores</h4> -->
             <ul class="founders-members">
                 <li>Moyano, Lorena</li>
                 <li>Gil, Daniela</li>
-                <li>Mayo, Ricardo</li>
+                <li>Moya, Ricardo</li>
                 <li>Nieto, Patricia</li>
                 <li>Ortiz, María de los Ángeles</li>
                 <li>Leyes, Javier</li>
                 <li>Fiori, Marcos</li>
                 <li>Devia, Viviana</li>
                 <li>Mithiaux, Mario</li>
-                <li>De Giuseeppe, Ramiro</li>
+                <li>De Giusseppe, Ramiro</li>
                 <li>Soria, Néstor</li>
                 <li>Cuello, Patricia</li>
             </ul>
@@ -221,13 +217,18 @@
                         colaborando como voluntario o donante, difundiendo nuestra misión y acercándonos tu
                         propuesta de capacitación para juntos hacerla realidad.
                     </p>
+                    <div class="cta-highlight" style="background: linear-gradient(90deg, #E8C730 20%, #E8426F 80%); color: #00212C; border-radius: 16px; padding: 1.2rem 1.5rem; margin-bottom: 1.2rem; box-shadow: 0 4px 16px rgba(232,199,48,0.08); text-align: center; font-size: 1.18rem; font-weight: 700;">
+                        ¡Tu participación transforma vidas!<br>
+                        Sé parte de TEESSA y ayudá a construir una sociedad más justa.<br>
+                        <a href="#footer" style="display:inline-block; margin-top:0.8rem; background:#E8426F; color:#fff; padding:0.7rem 1.3rem; border-radius:8px; font-weight:600; text-decoration:none; transition:background 0.2s;">Quiero unirme</a>
+                    </div>
                 </div>
             </div>
 
-            <p class="section-cta">
+            <!-- <p class="section-cta">
                 Sumarte es ser parte activa de la sociedad más consciente,
                 comprometida y preparada para el futuro.
-            </p>
+            </p> -->
         </div>
     </div>
 </section>
@@ -239,23 +240,23 @@
         <div class="content-grid events-grid">
             <div class="card event-card">
                 <img src="img/bullying.jpeg" alt="Jornada integral de bullying" class="event-image" loading="lazy">
-                <h4>1) Jornada integral de bullying</h4>
+                <h4> Jornada integral de bullying</h4>
             </div>
             <div class="card event-card">
                 <img src="img/ciberdelito.jpeg" alt="Conversatorio sobre ciberdelitos y grooming" class="event-image" loading="lazy">
-                <h4>2) Conversatorio sobre ciberdelitos y grooming</h4>
+                <h4> Conversatorio sobre ciberdelitos y grooming</h4>
             </div>
             <div class="card event-card">
                 <img src="img/conexion responsable.jpeg" alt="Programa conexión responsable" class="event-image" loading="lazy">
-                <h4>3) Programa conexión responsable</h4>
+                <h4> Programa conexión responsable</h4>
             </div>
             <div class="card event-card">
                 <img src="img/trabajo infantil.jpeg" alt="Jornada de capacitación contra el trabajo infantil" class="event-image" loading="lazy">
-                <h4>4) Jornada de capacitación contra el trabajo infantil</h4>
+                <h4>Jornada de capacitación contra el trabajo infantil</h4>
             </div>
             <div class="card event-card">
                 <img src="img/saludmental.jpeg" alt="Jornada sobre salud mental" class="event-image" loading="lazy">
-                <h4>5) Jornada sobre salud mental</h4>
+                <h4>Jornada sobre salud mental</h4>
             </div>
         </div>
     </div>

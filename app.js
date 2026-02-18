@@ -152,11 +152,12 @@ const closeLightbox = () => {
 
 if (lightboxImages.length && imageLightbox && imageLightboxImg && imageLightboxClose) {
     lightboxImages.forEach(image => {
-        if (image.closest('#footer .footer-socials a')) {
-            return;
-        }
-
-        if (image.closest('.sidebar-brand')) {
+        // Exclude social icons, sidebar logo, and hero logo from lightbox
+        if (
+            image.closest('#footer .footer-socials a') ||
+            image.closest('.sidebar-brand') ||
+            image.classList.contains('hero-logo')
+        ) {
             return;
         }
 
